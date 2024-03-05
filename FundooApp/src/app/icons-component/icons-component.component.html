@@ -1,0 +1,63 @@
+
+    <button mat-icon-button matTooltip="Remind me">
+        <span class="material-symbols-outlined">
+            notifications
+            </span>    </button>   
+    <button mat-icon-button matTooltip="Collaborator">
+        <span class="material-symbols-outlined">
+            person_add
+            </span>    </button>   
+    <button mat-icon-button matTooltip="Background options"  [matMenuTriggerFor]="colorPallet">
+        <span class="material-symbols-outlined">
+            palette
+            </span>    
+        </button>
+            
+    
+        <mat-menu #colorPallet >
+            <div class="color-palate-cnt">    
+                <div class="col1" matTooltip="Default" (click)="handleNoteOperations('#FFFFFF')"></div>
+                <div class="col2" matTooltip="Coral" (click)="handleNoteOperations('#FAAFA8')"></div>
+                <div class="col3" matTooltip="Peach" (click)="handleNoteOperations('#F39F76')"></div>
+                <div class="col4" matTooltip="Sand" (click)="handleNoteOperations('#FFF8B8')"></div>
+                <div class="col5" matTooltip="Mint" (click)="handleNoteOperations('#E2F6D3')"></div>
+                <div class="col6" matTooltip="Sage" (click)="handleNoteOperations('#B4DDD3')"></div>
+                <div class="col7" matTooltip="Fog" (click)="handleNoteOperations('#D4E4ED')"></div>
+                <div class="col8" matTooltip="Storm" (click)="handleNoteOperations('#AECCDC')"></div>
+                <div class="col9" matTooltip="Dusk" (click)="handleNoteOperations('#D3BFDB')"></div>
+                <div class="col10" matTooltip="Blossom" (click)="handleNoteOperations('#F6E2DD')"></div>
+                <div class="col11" matTooltip="Clay" (click)="handleNoteOperations('#E9E3D4')"></div>
+                <div class="col12" matTooltip="Chalk" (click)="handleNoteOperations('#EFEFF1')"></div>           
+            </div>
+          </mat-menu>
+
+          
+
+         
+
+    <button mat-icon-button matTooltip="Add image">
+        <span class="material-symbols-outlined">
+            photo
+            </span>    </button>   
+    <button mat-icon-button matTooltip="Archive">
+        <span class="material-symbols-outlined">
+            archive
+            </span>    </button>   
+    <button mat-icon-button matTooltip="More" [matMenuTriggerFor]="menu">
+        <span class="material-symbols-outlined">
+            more_vert
+            </span>    </button>  
+            <mat-menu #menu="matMenu" yPosition="below">
+                <div class="show-more-cnt">
+    
+                    <div >Delete note</div>
+                    <div>Add label</div>
+                    <div>Add drawing</div>
+                    <div>Make a Copy</div>
+                    <div>Show tick boxes</div>
+                    <div>Copy to google docs</div>
+                    <div>Version history</div>
+    
+                </div>
+                </mat-menu> 
+    

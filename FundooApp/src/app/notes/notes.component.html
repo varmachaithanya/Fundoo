@@ -1,0 +1,158 @@
+<mat-toolbar color="white">
+    <mat-toolbar-row>
+        <button mat-icon-button
+        matTooltip="Main menu">
+            <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
+        </button>
+        <img class="keep-pic" src="../../assets/keep_2020q4_48dp.png">
+        <p class="head-text">Keep</p>
+
+        <div class="middle-section">
+            <button mat-icon-button
+            matTooltip="Search"
+            >
+
+            <mat-icon class='search-icon'>search</mat-icon>
+
+        </button>
+
+            <input class="search-bar" type="text" placeholder="Search">
+            <button mat-icon-button
+            matTooltip="Clear search"
+            >
+
+                <mat-icon class='close-icon'>close</mat-icon>
+                </button>
+           
+           
+        </div>
+        
+       
+        <button mat-icon-button
+        matTooltip="Refresh"
+        >
+        <mat-icon class='refresh-icon'>refresh</mat-icon>
+    </button>
+    <button mat-icon-button
+    matTooltip="List view"
+    >
+
+        <mat-icon class='list-icon'>view_stream</mat-icon>
+    </button>
+    <button mat-icon-button
+    matTooltip="Settings"
+    >
+
+        <mat-icon class='settings-icon'>settings</mat-icon>
+    </button>
+    <div class="icon-elements">
+    
+    
+    <button mat-icon-button
+    matTooltip="Google apps">
+
+        <mat-icon class='apps-icon'>apps</mat-icon>
+    </button>
+    <button mat-icon-button
+    matTooltip="Google account"
+    >
+
+        <mat-icon class='account-icon'
+            >account_circle</mat-icon>
+    </button>
+    </div>
+
+
+
+
+    </mat-toolbar-row>
+
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav append="true" mode="side">
+    <mat-nav-list>
+<mat-list-item class="nav-items">
+    <mat-icon class='material-icons'>lightbulb</mat-icon><label id="text">Notes</label>
+</mat-list-item>
+<mat-list-item class="nav-items">
+    <mat-icon class='material-icons'>notifications_none</mat-icon><label id="text">Reminders</label>
+</mat-list-item>
+<mat-list-item class="nav-items">
+    <mat-icon class='material-icons'>edit</mat-icon><label id="text">Edit labels</label>
+</mat-list-item>
+<mat-list-item class="nav-items">
+    <mat-icon class='material-icons'>archive</mat-icon><label id="text">Archive</label>
+</mat-list-item>
+<mat-list-item class="nav-items">
+    <mat-icon class='material-icons'>delete_outline</mat-icon><label id="text">Bin</label>
+</mat-list-item>
+    </mat-nav-list>
+</mat-sidenav>
+<mat-sidenav-content>
+    <div style="height:88vh">
+
+        <div class="main-div-notes"  >
+            <div class="toggle-1" *ngIf="expand" (click)="toggleexpand()">
+            <input type="text" placeholder="Take a Notes" >
+            <button mat-icon-button matTooltip="New List">
+                <span class="material-symbols-outlined">
+                    check_box
+                    </span>            </button>
+             <button mat-icon-button matTooltip="New note with drawing">
+                <span class="material-symbols-outlined">
+                    brush
+                    </span>            </button>
+            <button mat-icon-button matTooltip="New note with image">
+                <span class="material-symbols-outlined">
+                    photo
+                    </span>            </button>   
+        </div>
+        <form [formGroup]="NoteForm" >
+        <div class="toggle-2" *ngIf="!expand" [style.background] = "color ? color:'transparent'">
+            <input type="text" placeholder="Title" [style.background] = "color ? color:'transparent'" id="title"
+            formControlName="title">
+            <button mat-icon-button class="icon-button" matTooltip="Pin note" (click)="togglepin()" *ngIf="!pin">
+                <span class="material-symbols-outlined">
+                    keep
+                    </span>
+            </button>
+            <button mat-icon-button class="icon-button" matTooltip="Unpin note" (click)="togglepin()" *ngIf="pin">
+                <span class="material-symbols-outlined">
+                    keep_off
+                    </span>
+            </button>
+            
+        </div>
+        <div class="toggle-3" *ngIf="!expand" [style.background] = "color ? color:'transparent'">
+            <input type="text" placeholder="Take a notes..." [style.background] = "color ? color:'transparent'"id="description"
+            formControlName="description">          
+            </div>
+        <div class="icons-toggle" *ngIf="!expand" [style.background] = "color ? color:'transparent'">
+            <app-icons-component  (colorChange) = "handleEvent($event)" ></app-icons-component>
+            <button mat-icon-button id="uicons" matTooltip="Undo">
+                <span class="material-symbols-outlined">
+                    undo
+                    </span>  
+              </button> 
+            
+              <button mat-icon-button  matTooltip="Redo">
+                <span class="material-symbols-outlined">
+                    redo
+                    </span>  
+              </button> 
+
+              <button mat-button class="close-button" color="White"  (click)="noteSubmited()" (click)="toggleexpand()"  >Close</button>
+        </div>
+        </form>
+    </div>
+    
+
+    <div class="display-note">
+    <app-add-note></app-add-note>
+    </div>
+
+    
+
+    </div>
+</mat-sidenav-content>
+</mat-sidenav-container>

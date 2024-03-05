@@ -1,0 +1,42 @@
+.main-div{
+    width: 590px;
+    margin: 30px auto;
+    border:1px solid;
+    background-color: white;
+    border-radius: 10px;
+
+}
+.main-div:hover{
+    box-shadow: rgb(0, 0, 0,0.187) 2px 2px 5px 5px;
+
+}
+.icons-toggle{
+    display:none;
+}
+.main-div:hover .icons-toggle{
+    display:block;
+}
+
+
+.toggle-2 input{
+    width: 525px;
+    outline: none;
+    border: none;
+    height:45px;
+    margin-left: 10px;
+}
+
+.toggle-3 input{
+    width: 575px;
+    outline: none;
+    border: none;
+    margin-left: 10px;
+    height:45px;
+}
+
+.icons{
+    float: right;
+}
+
+
+

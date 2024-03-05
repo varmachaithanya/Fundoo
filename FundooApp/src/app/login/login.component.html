@@ -1,0 +1,65 @@
+
+<form [formGroup]="loginForm" >
+<div class="main-div" >
+    <mat-card class="mat-card-main">
+       
+          <div class="sign-in">
+            <img class="google-pic" src="../../assets/unnamed.webp">
+
+            <p class="sign-in-text">Sign in</p>
+            <p class="basic-text">to continue to Gmail</p>
+          </div>
+         
+  
+            <div class="input-field">
+            <mat-form-field appearance="outline" >
+              <mat-label>Email or phone</mat-label>
+              <input matInput id="email"
+              formControlName="email">
+              
+            </mat-form-field>
+            <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched)">
+              Email is required
+            </div>
+            <div class="form-text text-danger" *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched)">
+              Email is Invalid
+            </div>
+
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput id="pwd"
+              formControlName="pwd">
+             
+            </mat-form-field>
+            <div class="form-text text-danger" *ngIf="PWD.errors?.['required'] && (PWD.dirty || PWD.touched)">
+              Password is required
+            </div>
+            <div class="form-text text-danger" *ngIf="PWD.errors?.['minlenght'] || PWD.errors?.['maxlenght'] && (PWD.dirty || PWD.touched)">
+              Password should be atleast 6 at hte max 15 characters long.
+            </div>
+            </div>
+          
+          
+            <!-- <mat-form-field class="login-text-2">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" placeholder="Password">
+              </mat-form-field>  -->
+              <div class="forgot-email" >
+                <a routerLink="/forgotemail">Forgot email?</a>
+              </div>
+              <div>
+              <p class="ex-text">Not your computer? Use Guest mode to sign in privately. </p>
+                <p class="guest">Learn more about using Guest mode</p>
+                </div>
+              <div>
+              <button mat-button class="login-button-1" color="White" (click)="navigateToRegister()">Create account</button>
+              <button mat-raised-button class="login-button-2" [disabled]="loginForm.invalid" (click)="loginSubmited()">Submit</button>
+
+            </div>
+
+         </mat-card>
+
+</div>
+</form>
+
+
