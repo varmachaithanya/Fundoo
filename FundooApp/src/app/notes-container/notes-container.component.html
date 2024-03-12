@@ -1,0 +1,62 @@
+<div class="main-div-notes"  >
+    <div class="toggle-1" *ngIf="expand" (click)="toggleexpand()">
+    <input type="text" placeholder="Take a Notes" >
+    <button mat-icon-button matTooltip="New List">
+        <span class="material-symbols-outlined">
+            check_box
+            </span>            </button>
+     <button mat-icon-button matTooltip="New note with drawing">
+        <span class="material-symbols-outlined">
+            brush
+            </span>            </button>
+    <button mat-icon-button matTooltip="New note with image">
+        <span class="material-symbols-outlined">
+            photo
+            </span>            </button>   
+</div>
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+    Name: <input ng-model="name">
+    <h1>You entered: {{name}}</h1>
+  </div> -->
+<!-- <div class="toggle-2" *ngIf="!expand" [style.background] = "color ? color:'transparent'">
+    <input  type="text" placeholder="Title" [style.background] = "color ? color:'transparent'" id="title"
+    formControlName="title"> -->
+    <div class="toggle-2" *ngIf="!expand" [style.background]="bgcolor ? bgcolor : 'transparent'">
+        <input type="text" placeholder="Title" [style.background]="bgcolor ? bgcolor : 'transparent'" id="title" [(ngModel)]="noteobj.title">
+    <button mat-icon-button class="icon-button" matTooltip="Pin note" (click)="togglepin()" *ngIf="!pin">
+        <span class="material-symbols-outlined">
+            keep
+            </span>
+    </button>
+    <button mat-icon-button class="icon-button" matTooltip="Unpin note" (click)="togglepin()" *ngIf="pin">
+        <span class="material-symbols-outlined">
+            keep_off
+            </span>
+    </button>
+    
+</div>
+<div class="toggle-3" *ngIf="!expand" [style.background] = "bgcolor ? bgcolor:'transparent'">
+    <input type="text" placeholder="Take a notes..." [style.background] = "bgcolor ? bgcolor:'transparent'"id="description" [(ngModel)]="noteobj.description">
+         
+    </div>
+<div class="icons-toggle" *ngIf="!expand" [style.background] = "bgcolor ? bgcolor:'transparent'">
+    <app-icons-component  (colorChange) = "handleEvent($event)" [logic]= "toggledata" ></app-icons-component>
+    <button mat-icon-button id="uicons" matTooltip="Undo">
+        <span class="material-symbols-outlined">
+            undo
+            </span>  
+      </button> 
+    
+      <button mat-icon-button  matTooltip="Redo">
+        <span class="material-symbols-outlined">
+            redo
+            </span>  
+      </button> 
+
+      <button mat-button class="close-button" color="White"   (click)="handlebutton()">Close</button>
+</div>
+
+</div>
+<div class="display-note">
+    <app-add-note [addNewNote] = "noteobj"  [sentNote] = "notAdded" ></app-add-note>
+    </div>

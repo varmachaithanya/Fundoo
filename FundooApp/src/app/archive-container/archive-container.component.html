@@ -1,0 +1,7 @@
+
+
+
+ <div *ngFor="let note of archivedata">
+
+    <app-notecommon [noteObj]="note" (updateList)="updateArchiveNoteList($event)" [container]="'archive'" (modify)="openDialog($event)"></app-notecommon>
+</div>

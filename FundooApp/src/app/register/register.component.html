@@ -1,105 +1,107 @@
 <form class="register-form"  [formGroup]="registerForm" (ngSubmit)="RegisterSubmited()">
-<div class="main-div">
-
-        <mat-card>
-        <div class="inner-child-1">
-
-        <!-- <form class="data"> -->
-
-          <div class="sign-in">
-            <img class="google-pic" src="../../assets/unnamed.webp">
-
-            <p class="sign-in-text">Create Your Google Account</p>
-          </div>
-
-          <div class="input-field">
-            <mat-form-field appearance="outline">
-              <mat-label>First Name</mat-label>
-              <input matInput id="firstname"
-              formControlName="firstname">
-            </mat-form-field>
-          <!-- <div class="form-text text-danger" *ngIf="FirstName.errors?.['required'] && (FirstName.dirty || FirstName.touched)">
-            FirstName is required
-          </div> -->
-            
-            <!-- <div class="input-field"> -->
-
-            <mat-form-field appearance="outline">
-              <mat-label>Last Name</mat-label>
-              <input matInput  id="lastname"
-              formControlName="lastname">
-            </mat-form-field>
-            <!-- </div> -->
-           
-          </div>
-          
-          <!-- <div id="lastname-validator" class="form-text text-danger" *ngIf="LastName.errors?.['required'] && (LastName.dirty || LastName.touched)">
-            LastName is required
-          </div> -->
-         
-          <div class="user-mail">
-            <mat-form-field  appearance="outline">
-                <mat-label>email</mat-label>
-                <input matInput 
-                id="email"
-              formControlName="email">
-                <mat-hint>You can use letters, numbers & periods</mat-hint>
-              </mat-form-field>
-              <!-- <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched)">
-                Email is required
-              </div>
-              <div class="form-text text-danger" *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched)">
-                Email is Invalid
-              </div> -->
-              </div>
-
-            <p class="data-text">Use my current email address instead</p>
-
+  <div class="main-div">
+<mat-card>
+          <div class="inner-child-1">
+  
+          <!-- <form class="data"> -->
+  
+            <div class="sign-in">
+              <img class="google-pic" src="../../assets/unnamed.webp">
+  
+              <p class="sign-in-text">Create Your Google Account</p>
+            </div>
+  
             <div class="input-field">
-                <mat-form-field appearance="outline">
-                  <mat-label>Password</mat-label>
+              <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+
+                <input matInput id="firstname"
+                formControlName="firstname">
+              </mat-form-field>
+
+                <!-- <div class="form-text text-danger" *ngIf="FirstName.errors?.['required'] && (FirstName.dirty || FirstName.touched)">
+              FirstName is required
+            </div> -->
+              
+              <!-- <div class="input-field"> -->
+  
+              <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input matInput  id="lastname"
+                formControlName="lastname">
+              </mat-form-field>
+              <!-- </div> -->
+             
+            </div>
+            
+            <!-- <div id="lastname-validator" class="form-text text-danger" *ngIf="LastName.errors?.['required'] && (LastName.dirty || LastName.touched)">
+              LastName is required
+            </div> -->
+           
+            <div class="user-mail">
+              <mat-form-field  appearance="outline">
+                  <mat-label>email</mat-label>
                   <input matInput 
-                  id="password"
-              formControlName="password">
+                  id="email"
+                formControlName="email">
+                <mat-hint>You can use letters, numbers & periods</mat-hint>
 
                 </mat-form-field>
-                
-                
-                <mat-form-field appearance="outline">
-                  <mat-label>Confirm</mat-label>
-                  <input matInput >
-                </mat-form-field>
-               
-                <!-- <div class="form-text text-danger" *ngIf="PWD.errors?.['minlenght'] || PWD.errors?.['maxlenght'] && (PWD.dirty || PWD.touched)">
-                  Password should be atleast 6 at hte max 15 characters long.
-                </div> -->
-                <div class="hint-data">                  <mat-hint>Use 8 or more characters with a mix of letters, numbers & 
-                    symbols</mat-hint>
+                <!-- <div class="form-text text-danger" *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched)">
+                  Email is required
                 </div>
-                <!-- <div class="form-text text-danger" *ngIf="PWD.errors?.['required'] && (PWD.dirty || PWD.touched)">
-                  Password is required
+                <div class="form-text text-danger" *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched)">
+                  Email is Invalid
                 </div> -->
-                <div class="check">
-                    <mat-checkbox class="example-margin" color="primary">Show password</mat-checkbox>
-                  </div>
+                </div>
+  
+              <p class="data-text">Use my current email address instead</p>
+  
+              <div class="input-field">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput 
+                    id="password"
+                formControlName="password">
+  
+                  </mat-form-field>
                   
+                  
+                  <mat-form-field appearance="outline">
+                    <mat-label>Confirm</mat-label>
+                    <input matInput >
+                  </mat-form-field>
+                 
+                  <!-- <div class="form-text text-danger" *ngIf="PWD.errors?.['minlenght'] || PWD.errors?.['maxlenght'] && (PWD.dirty || PWD.touched)">
+                    Password should be atleast 6 at hte max 15 characters long.
+                  </div> -->
+                  <div class="hint-data">                  <mat-hint>Use 8 or more characters with a mix of letters, numbers & 
+                      symbols</mat-hint>
+                  </div>
+                  <!-- <div class="form-text text-danger" *ngIf="PWD.errors?.['required'] && (PWD.dirty || PWD.touched)">
+                    Password is required
+                  </div> -->
+                  <div class="check">
+                    <mat-checkbox class="example-margin" color="primary">Show password</mat-checkbox>
+                    </div>
+                    
+                  </div>
+                <div>
+                  <button mat-button class="login-button-1" color="White">Sign in instead</button>
+                  <button mat-raised-button class="login-button-2" >Next</button>
+    
                 </div>
-              <div>
-                <button mat-button class="login-button-1" color="White">Sign in instead</button>
-                <button mat-raised-button class="login-button-2" >Next</button>
+  
+          </div>
+          <div class="inner-child-2">
+              <div class="profile-pic">
+                  <img  src="../../assets/image.png">
+                  <p>One account. All of Google <span>working for you.</span></p>
   
               </div>
-
-        </div>
-        <div class="inner-child-2">
-            <div class="profile-pic">
-                <img  src="../../assets/image.png">
-                <p>One account. All of Google <span>working for you.</span></p>
-
+  
             </div>
-
-          </div>
-        </mat-card>
-
-</div>
-</form>
+          </mat-card>
+  
+  </div>
+  </form>

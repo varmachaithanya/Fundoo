@@ -1,0 +1,97 @@
+<mat-toolbar color="white">
+    <mat-toolbar-row>
+        <button mat-icon-button
+        matTooltip="Main menu">
+            <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
+        </button>
+        <img class="keep-pic" src="../../assets/keep_2020q4_48dp.png">
+        <p class="head-text">Keep</p>
+
+        <div class="middle-section">
+            <button mat-icon-button
+            matTooltip="Search"
+            >
+
+            <mat-icon class='search-icon'>search</mat-icon>
+
+        </button>
+
+            <input class="search-bar" type="text" placeholder="Search">
+            <button mat-icon-button
+            matTooltip="Clear search"
+            >
+
+                <mat-icon class='close-icon'>close</mat-icon>
+                </button>
+           
+           
+        </div>
+        
+       
+        <button mat-icon-button
+        matTooltip="Refresh"
+        >
+        <mat-icon class='refresh-icon'>refresh</mat-icon>
+    </button>
+    <button mat-icon-button
+    matTooltip="List view"
+    >
+
+        <mat-icon class='list-icon'>view_stream</mat-icon>
+    </button>
+    <button mat-icon-button
+    matTooltip="Settings"
+    >
+
+        <mat-icon class='settings-icon'>settings</mat-icon>
+    </button>
+    <div class="icon-elements">
+    
+    
+    <button mat-icon-button
+    matTooltip="Google apps">
+
+        <mat-icon class='apps-icon'>apps</mat-icon>
+    </button>
+    <button mat-icon-button
+    matTooltip="Google account"
+    >
+
+        <mat-icon class='account-icon'
+            >account_circle</mat-icon>
+    </button>
+    </div>
+
+
+
+
+    </mat-toolbar-row>
+
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav append="true" mode="side">
+    <mat-nav-list>
+<mat-list-item class="nav-items" (click)="navigatetonotes()">
+    <mat-icon class='material-icons' >lightbulb</mat-icon><label id="text">Notes</label>
+</mat-list-item>
+<mat-list-item class="nav-items">
+    <mat-icon class='material-icons'>notifications_none</mat-icon><label id="text">Reminders</label>
+</mat-list-item>
+<mat-list-item class="nav-items">
+    <mat-icon class='material-icons'>edit</mat-icon><label id="text">Edit labels</label>
+</mat-list-item>
+<mat-list-item class="nav-items" (click)="navigatetoarchive()">
+    <mat-icon class='material-icons' >archive</mat-icon><label id="text">Archive</label>
+</mat-list-item>
+<mat-list-item class="nav-items" (click)="navigatetotrash()">
+    <mat-icon class='material-icons' >delete_outline</mat-icon><label id="text" >Bin</label>
+</mat-list-item>
+    </mat-nav-list>
+</mat-sidenav>
+<mat-sidenav-content>
+    <div style="height:88vh">
+        <router-outlet></router-outlet>
+        </div>
+</mat-sidenav-content>
+</mat-sidenav-container>
+    

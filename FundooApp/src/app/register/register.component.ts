@@ -6,6 +6,7 @@ import { RegisterserviceService } from 'src/app/services/registerservice/registe
 
 
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -28,7 +29,7 @@ export class RegisterComponent implements OnInit {
       Validators.maxLength(15),]),
   });
   navigateTonotes() {
-    this.router.navigate(['/notes']);
+    this.router.navigate(['dashboard/notes-component']);
 
 }
 

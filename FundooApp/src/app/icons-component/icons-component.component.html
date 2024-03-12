@@ -39,7 +39,7 @@
         <span class="material-symbols-outlined">
             photo
             </span>    </button>   
-    <button mat-icon-button matTooltip="Archive">
+    <button mat-icon-button matTooltip="Archive" (click)="handleNoteOperations('archive')">
         <span class="material-symbols-outlined">
             archive
             </span>    </button>   
@@ -50,13 +50,13 @@
             <mat-menu #menu="matMenu" yPosition="below">
                 <div class="show-more-cnt">
     
-                    <div >Delete note</div>
-                    <div>Add label</div>
-                    <div>Add drawing</div>
+                    <div (click)="handleNoteOperations('trash')">Delete note</div>
+                    <div>Add label </div>
+                    <div>Add drawing </div>
                     <div>Make a Copy</div>
                     <div>Show tick boxes</div>
                     <div>Copy to google docs</div>
-                    <div>Version history</div>
+                    <div>Version history </div>
     
                 </div>
                 </mat-menu> 

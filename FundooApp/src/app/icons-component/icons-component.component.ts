@@ -9,7 +9,10 @@ import { NotesService } from 'src/app/services/noteservices/notes.service';
   styleUrls: ['./icons-component.component.scss']
 })
 export class IconsComponentComponent implements OnInit {
+@Input() noteiddata:any
+@Input() logic:any
 
+  noteId:number=6
   constructor(private loginAuth:NotesService) { }
 
   ngOnInit(): void {
@@ -21,18 +24,50 @@ export class IconsComponentComponent implements OnInit {
   }
 
   // @Input() element:any;
-  @Output() colorChange = new EventEmitter<string>();
+  @Output() colorChange = new EventEmitter<any>();
+  @Output() toggleArchive = new EventEmitter<any>();
+  @Output() toggleTrash= new EventEmitter<any>();
+  
 
   colors=''
  // @ViewChild('fetchelement') d:any ;
-  handleNoteOperations($event:string){
+  handleNoteOperations($event:any){
     console.log($event);
     
     // this.colors=$event;
     // console.log(this.element);
-    this.colorChange.emit($event)
-    
-    // this.element.nativeElement.style.backgroundColor=$event;
+
+    if($event==='archive'){  
+      this.loginAuth.toggleArchiveAndTrash(this.noteiddata).subscribe(res=>{
+      console.log(res);
+      // this.loginAuth.emit({action:"archive",data:{noteID:this.noteobj.noteID}})
+      this.toggleArchive.emit(this.noteiddata);
+    })
+  }
+    else if($event==='trash'){
+      this.loginAuth.toggleTrash(this.noteiddata).subscribe(res=>{
+        console.log(res);
+      this.toggleTrash.emit(this.noteiddata)
+    })
+  }
+  else{
+    debugger
+    if(this.logic){
+      this.colorChange.emit({color:$event})
+    }
+    else{
+      this.loginAuth.colorChange({noteID:this.noteiddata,color:$event}).subscribe(res=>{
+        this.colorChange.emit({noteID:this.noteiddata,color:$event})
+
+    }
+
+  )}
   }
   
 }
+
+    // this.element.nativeElement.style.backgroundColor=$event;
+  
+}
+
+

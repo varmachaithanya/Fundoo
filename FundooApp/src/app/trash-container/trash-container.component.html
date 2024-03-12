@@ -1,0 +1,40 @@
+<!-- <div class="display-trash">
+    <span>Notes In The Bin Are Deleted After 7 Days</span>
+</div>
+<div class="main-div" *ngFor="let items of trashdata" [style.background] = "items.color ? items.color:'transparent'">
+    <form (click)="openDialog(items)">
+
+
+    <div class="toggle-2" >
+    
+         {{items.title}}
+        
+        <button mat-icon-button class="icons" matTooltip="Pin note" >
+            <span class="material-symbols-outlined">
+                keep
+                </span>
+        </button> -->
+        <!-- <button mat-icon-button class="icon-button" matTooltip="Unpin note">
+            <span class="material-symbols-outlined">
+                keep_off
+                </span>
+        </button> -->
+        
+    <!-- </div>
+    <div class="toggle-3" >
+        <span>{{items.description}}</span>        
+       
+            
+        </div>
+    </form>
+    <div class="icons-toggle">
+        <app-icons-component [noteiddata]="items.noteID" (colorChange)="handleColor($event)" (toggleTrash) = "handleTrash($event)" (toggleArchive) = "handleArchive($event)"></app-icons-component>
+    </div>
+    </div> -->
+
+
+
+    <div *ngFor="let note of trashdata">
+        <app-notecommon [noteObj]="note" (updateList)="handleEvent($event)" [container]="'trash'" (modify)="openDialog($event)"></app-notecommon>
+
+    </div>

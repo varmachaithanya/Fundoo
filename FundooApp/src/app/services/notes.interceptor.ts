@@ -13,7 +13,7 @@ export class NotesInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    debugger;
+    // debugger;
     const token=localStorage.getItem("Token");
     const newCloneRequest = request.clone({
       setHeaders:{

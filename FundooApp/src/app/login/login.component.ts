@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
   isUserValid:boolean =false;
 
   loginSubmited() {
-    debugger;
     this.loginAuth.loginUser([this.loginForm.value.email,
     this.loginForm.value.pwd]).subscribe(res =>{
       if(res == 'Failure'){
@@ -45,7 +44,7 @@ export class LoginComponent implements OnInit {
         alert('login sucessfull');
         localStorage.setItem("Token",res);
         console.log(res)
-        this.router.navigateByUrl('notes');
+        this.router.navigateByUrl('dashboard/notes-component');
       }
 
     });

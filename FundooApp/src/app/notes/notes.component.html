@@ -72,7 +72,7 @@
     <mat-sidenav #sidenav append="true" mode="side">
     <mat-nav-list>
 <mat-list-item class="nav-items">
-    <mat-icon class='material-icons'>lightbulb</mat-icon><label id="text">Notes</label>
+    <mat-icon class='material-icons' (click)="onPress('1')">lightbulb</mat-icon><label id="text">Notes</label>
 </mat-list-item>
 <mat-list-item class="nav-items">
     <mat-icon class='material-icons'>notifications_none</mat-icon><label id="text">Reminders</label>
@@ -81,10 +81,10 @@
     <mat-icon class='material-icons'>edit</mat-icon><label id="text">Edit labels</label>
 </mat-list-item>
 <mat-list-item class="nav-items">
-    <mat-icon class='material-icons'>archive</mat-icon><label id="text">Archive</label>
+    <mat-icon class='material-icons' (click)="onPress('4')">archive</mat-icon><label id="text">Archive</label>
 </mat-list-item>
 <mat-list-item class="nav-items">
-    <mat-icon class='material-icons'>delete_outline</mat-icon><label id="text">Bin</label>
+    <mat-icon class='material-icons' (click)=" onPress('5')">delete_outline</mat-icon><label id="text" >Bin</label>
 </mat-list-item>
     </mat-nav-list>
 </mat-sidenav>
@@ -107,10 +107,15 @@
                     photo
                     </span>            </button>   
         </div>
-        <form [formGroup]="NoteForm" >
-        <div class="toggle-2" *ngIf="!expand" [style.background] = "color ? color:'transparent'">
-            <input type="text" placeholder="Title" [style.background] = "color ? color:'transparent'" id="title"
-            formControlName="title">
+            <!-- <div ng-app="myApp" ng-controller="myCtrl">
+            Name: <input ng-model="name">
+            <h1>You entered: {{name}}</h1>
+          </div> -->
+        <!-- <div class="toggle-2" *ngIf="!expand" [style.background] = "color ? color:'transparent'">
+            <input  type="text" placeholder="Title" [style.background] = "color ? color:'transparent'" id="title"
+            formControlName="title"> -->
+            <div class="toggle-2" *ngIf="!expand" [style.background]="bgcolor ? bgcolor : 'transparent'">
+                <input type="text" placeholder="Title" [style.background]="bgcolor ? bgcolor : 'transparent'" id="title" [(ngModel)]="noteobj.title">
             <button mat-icon-button class="icon-button" matTooltip="Pin note" (click)="togglepin()" *ngIf="!pin">
                 <span class="material-symbols-outlined">
                     keep
@@ -123,11 +128,11 @@
             </button>
             
         </div>
-        <div class="toggle-3" *ngIf="!expand" [style.background] = "color ? color:'transparent'">
-            <input type="text" placeholder="Take a notes..." [style.background] = "color ? color:'transparent'"id="description"
-            formControlName="description">          
+        <div class="toggle-3" *ngIf="!expand" [style.background] = "bgcolor ? bgcolor:'transparent'">
+            <input type="text" placeholder="Take a notes..." [style.background] = "bgcolor ? bgcolor:'transparent'"id="description" [(ngModel)]="noteobj.description">
+                 
             </div>
-        <div class="icons-toggle" *ngIf="!expand" [style.background] = "color ? color:'transparent'">
+        <div class="icons-toggle" *ngIf="!expand" [style.background] = "bgcolor ? bgcolor:'transparent'">
             <app-icons-component  (colorChange) = "handleEvent($event)" ></app-icons-component>
             <button mat-icon-button id="uicons" matTooltip="Undo">
                 <span class="material-symbols-outlined">
@@ -141,18 +146,24 @@
                     </span>  
               </button> 
 
-              <button mat-button class="close-button" color="White"  (click)="noteSubmited()" (click)="toggleexpand()"  >Close</button>
+              <button mat-button class="close-button" color="White"   (click)="toggleexpand()" (click)="noteSubmited()" >Close</button>
         </div>
-        </form>
     </div>
     
-
-    <div class="display-note">
-    <app-add-note></app-add-note>
+    <div class="display-note" *ngIf="display==='1'">
+    <app-add-note [addNewNote] = "noteobj" [sentNote] = "notAdded"></app-add-note>
     </div>
+ 
+     <div class="display-trash" *ngIf="display==='5'">
+        <span>Notes In The Bin Are Deleted After 7 Days</span>
+        <app-trash></app-trash>
+     </div>
 
+     <div class="display-archive" *ngIf="display==='4'">
+        <app-archive></app-archive>
+     </div>
     
-
     </div>
+    
 </mat-sidenav-content>
 </mat-sidenav-container>

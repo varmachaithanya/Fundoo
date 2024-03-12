@@ -1,0 +1,50 @@
+.main-div{
+    width: 590px;
+    margin: 30px auto;
+    border:1px solid;
+    background-color: white;
+    border-radius: 10px;
+
+}
+.main-div:hover{
+    box-shadow: rgb(0, 0, 0,0.187) 2px 2px 5px 5px;
+
+}
+.main-div .icons-toggle{
+    opacity:0;
+}
+.main-div:hover .icons-toggle{
+    opacity:1;
+}
+
+
+.toggle-2 input{
+    width: 525px;
+    outline: none;
+    border: none;
+    height:45px;
+    margin-left: 10px;
+}
+
+.toggle-3 input{
+    width: 575px;
+    outline: none;
+    border: none;
+    margin-left: 10px;
+    height:45px;
+}
+
+.icons{
+    float: right;
+}
+
+.toggle-2{
+    padding-left: 15px;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.toggle-3{
+    padding-top: 10px;
+    padding-left: 15px;
+}

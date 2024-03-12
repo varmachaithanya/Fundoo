@@ -1,31 +1,6 @@
 
-<div class="main-div" *ngFor="let items of newdata" [style.background] = "items.color ? items.color:'transparent'">
-<div class="toggle-2" >
 
-     {{items.title}}
-    
-    <button mat-icon-button class="icons" matTooltip="Pin note" >
-        <span class="material-symbols-outlined">
-            keep
-            </span>
-    </button>
-    <!-- <button mat-icon-button class="icon-button" matTooltip="Unpin note">
-        <span class="material-symbols-outlined">
-            keep_off
-            </span>
-    </button> -->
-    
-</div>
-<div class="toggle-3" >
-    <span>{{items.description}}</span>        
-    </div>
-    <div>
+    <div *ngFor="let note of newdata">
 
+        <app-notecommon [noteObj]="note" (updateList)="handleEvent($event)" [container]="'notes'" (modify)="openDialog($event)"></app-notecommon>
     </div>
-    <div>
-        
-    </div>
-<div class="icons-toggle">
-    <app-icons-component   ></app-icons-component>
-</div>
-</div>

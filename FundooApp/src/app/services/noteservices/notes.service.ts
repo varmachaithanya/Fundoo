@@ -11,8 +11,8 @@ export class NotesService {
   loginurl='https://localhost:7006/api/Notes/';
 
 
-  getdata(){
-    return this.http.get(this.loginurl + 'GetAllNotes')
+  getdata():Observable<any[]>{
+    return this.http.get<any[]>(this.loginurl + 'GetAllNotes')
 
   }
 
@@ -21,21 +21,57 @@ export class NotesService {
 
 
 
-  sendData(NoteInfo: Array<string>){
-    debugger;
-    return this.http.post(this.loginurl + 'CreateNotes', {
-      Title:NoteInfo[0],
-      Description:NoteInfo[1],
-      Color:NoteInfo[2],
-      // Imagepaths:NoteInfo[2],
-      IsArchive:NoteInfo[3],
-      IsPinned:NoteInfo[4],
-      IsTrash:NoteInfo[5],
-      UserId:NoteInfo[6],
+  sendData(NoteInfo: any):Observable<any>{
+    // debugger;
+    return this.http.post(this.loginurl + 'CreateNotes', NoteInfo);
+}
 
+updateNotes(updatedata:any):Observable<any>{
+  return this.http.put(this.loginurl + 'UpdateNote',updatedata)
+}
 
+toggleArchiveAndTrash(endpoint:any){
+  console.log(endpoint)
+  return this.http.post(this.loginurl + `Toggelarchive?noteid=${endpoint}`,{},
+  {
+    responseType:'text',
   })
 }
-  }
+
+toggleTrash(endpoint:any){
+  debugger
+  console.log(endpoint)
+  return this.http.put(this.loginurl + `Toggeltrash?noteid=${endpoint}`,{},
+  {
+    responseType:'text',
+  })
+}
+
+delete(endpoint:any){
+  debugger
+  console.log(endpoint)
+  return this.http.delete(this.loginurl + `DeleteNote?noteid=${endpoint}`,
+  {
+    responseType:'text',
+  })
+}
+
+
+colorChange(endpoint:any){
+  debugger
+  console.log(endpoint)
+  const id=endpoint.id
+  const colors=endpoint.color
+
+  console.log(id)
+  return this.http.post(this.loginurl + 'AddColour', endpoint,
+  {
+    responseType:'text',
+  })
+
+
+}
+}
+  
 
 

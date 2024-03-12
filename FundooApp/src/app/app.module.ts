@@ -1,4 +1,3 @@
-import { NgModule, ViewChild } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +25,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IconsComponentComponent } from './icons-component/icons-component.component';
 import { AddNoteComponent } from './create-note/create-note.component';
 import { NotesInterceptor } from './services/notes.interceptor';
+import { TrashComponent } from './trash/trash.component';
+import { NotesContainerComponent } from './notes-container/notes-container.component';
+import { DashboardContainerComponent } from './dashboard-container/dashboard-container.component';
+import { ArchiveContainerComponent } from './archive-container/archive-container.component';
+import { TrashContainerComponent } from './trash-container/trash-container.component';
+import { EditComponentComponent } from './edit-component/edit-component.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { NotecommonComponent } from './notecommon/notecommon.component';
+import { ArchiveComponent } from './archive/archive.component';
+import { NgModule } from '@angular/core';
 // import { DemoComponent } from './services/registerservice/demo/demo.component';
 
 
@@ -45,6 +54,14 @@ import { NotesInterceptor } from './services/notes.interceptor';
     NotesComponent,
     IconsComponentComponent,
     AddNoteComponent,
+    TrashComponent,
+    ArchiveComponent,
+    NotesContainerComponent,
+    DashboardContainerComponent,
+    ArchiveContainerComponent,
+    TrashContainerComponent,
+    EditComponentComponent,
+    NotecommonComponent,
     
   ],
   imports: [
@@ -66,6 +83,8 @@ import { NotesInterceptor } from './services/notes.interceptor';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+    MatDialogModule,
+
   ],
   providers: [
     {

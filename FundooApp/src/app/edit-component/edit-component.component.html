@@ -1,0 +1,65 @@
+    <!-- <div class="main-div-notes"  >
+   
+    <!-- <div ng-app="myApp" ng-controller="myCtrl">
+    Name: <input ng-model="name">
+    <h1>You entered: {{name}}</h1>
+  </div> -->
+<!-- <div class="toggle-2" *ngIf="!expand" [style.background] = "color ? color:'transparent'">
+    <input  type="text" placeholder="Title" [style.background] = "color ? color:'transparent'" id="title"
+    formControlName="title"> -->
+    <!-- <div class="toggle-2" *ngIf="!expand" [style.background]="bgcolor ? bgcolor : 'transparent'">
+        <input type="text" placeholder="Title" [style.background]="bgcolor ? bgcolor : 'transparent'" id="title" [(ngModel)]="noteobj.title">
+    <button mat-icon-button class="icon-button" matTooltip="Pin note" (click)="togglepin()" *ngIf="!pin">
+        <span class="material-symbols-outlined">
+            keep
+            </span>
+    </button>
+    <button mat-icon-button class="icon-button" matTooltip="Unpin note" (click)="togglepin()" *ngIf="pin">
+        <span class="material-symbols-outlined">
+            keep_off
+            </span>
+    </button>
+    
+</div>
+<div class="toggle-3" *ngIf="!expand" [style.background] = "bgcolor ? bgcolor:'transparent'">
+    <input type="text" placeholder="Take a notes..." [style.background] = "bgcolor ? bgcolor:'transparent'"id="description" [(ngModel)]="noteobj.description">
+         
+    </div>
+<div class="icons-toggle" *ngIf="!expand" [style.background] = "bgcolor ? bgcolor:'transparent'">
+    <app-icons-component  (colorChange) = "handleEvent($event)" ></app-icons-component>
+    <button mat-icon-button id="uicons" matTooltip="Undo">
+        <span class="material-symbols-outlined">
+            undo
+            </span>  
+      </button> 
+    
+      <button mat-icon-button  matTooltip="Redo">
+        <span class="material-symbols-outlined">
+            redo
+            </span>  
+      </button> 
+
+      <button mat-button class="close-button" color="White"   (click)="toggleexpand()" (click)="noteSubmited()" >Close</button>
+</div>
+
+</div> -->
+
+
+
+
+
+
+        <div class="main-div" [style.background]="data.color">
+            <input type="text" [(ngModel)]="data.title" [style.background]="data.color">
+        <!-- <mat-dialog-content> -->
+            <textarea name="" id="" cols="60" rows="10" [(ngModel)]="data.description"[style.background]="data.color"></textarea>
+        <!-- </mat-dialog-content> -->
+        <!-- <mat-dialog-actions> -->
+            <div>
+          <app-icons-component [noteiddata]="data.noteID" (colorChange) = "handleColor($event)" ></app-icons-component><button class="button" mat-button (click)="onNoClick()">Close</button>
+        <!-- </mat-dialog-actions> -->
+            </div>
+    </div>
+
+
+
